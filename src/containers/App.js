@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
-	// no longer needed (local state), state now returned via this.props.onRequestStories()
+	// no longer needed (local state)
 	// constructor() {
 	// 	super()
 	// 	this.state = {
