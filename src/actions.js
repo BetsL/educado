@@ -15,6 +15,6 @@ export const requestStories = () => (dispatch) => {
 	fetch('https://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=created_at_i%3E1249344000,created_at_i%3C1533340800&hitsPerPage=10')
 		.then(response => response.json())
 		// .then(data => this.setState({ stories: data.hits }));
-		.then(data => dispatch({ type: REQUEST_STORIES_SUCCESS, payload: data }))
+		.then(data => dispatch({ type: REQUEST_STORIES_SUCCESS, payload: data.hits }))
 		.catch(error => dispatch({ type: REQUEST_STORIES_FAILED, payload: error }))
 }

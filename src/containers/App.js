@@ -25,6 +25,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
+	// no longer needed (local state), state now returned via this.props.onRequestStories()
 	// constructor() {
 	// 	super()
 	// 	this.state = {
@@ -46,13 +47,13 @@ class App extends Component {
 	// }
 
 	render() {
-		const { stories } = this.state;
-		const { searchField, onSearchChange } = this.props;
+		// const { stories } = this.state;
+		const { searchField, onSearchChange, stories, isPending }  = this.props;
 		const filteredStories = stories.filter(story => {
 				return story.title.toLowerCase().includes(searchField.toLowerCase());
 				// console.log(story.title.toLowerCase());
 		})
-			return !stories.length ?
+			return isPending ?
 			<h1>Loading ...</h1> :
 			(
 				<div className='tc'>
