@@ -6,33 +6,38 @@ import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
 
-import { setSearchField } from '../actions';
+import { setSearchField, requestStories } from '../actions';
 
 const mapStateToProps = state => {
 	return {
-		searchField: state.searchStories
+		searchField: state.searchStories.searchField,
+		stories: state.requestStories.stories,
+		isPending: state.requestStories.isPending,
+		error: state.requestStories.error
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onSearchChange: (event) => dispatch(setSearchField(event.target.value))
+		onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+		onRequestStories: () => dispatch(requestStories())
 	}
 }
 
 class App extends Component {
-	constructor() {
-		super()
-		this.state = {
-			storyList: [],
-			// searchfield: ''
-		}
-	}
+	// constructor() {
+	// 	super()
+	// 	this.state = {
+	// 		storyList: [],
+	// 	}
+	// }
 
 	componentDidMount() {
-		fetch('https://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=created_at_i%3E1249344000,created_at_i%3C1533340800&hitsPerPage=100')
-			.then(response => response.json())
-			.then(data => this.setState({ storyList: data.hits }));
+		// through actions ...
+		// fetch('https://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=created_at_i%3E1249344000,created_at_i%3C1533340800&hitsPerPage=10')
+		// 	.then(response => response.json())
+		// 	.then(data => this.setState({ stories: data.hits }));
+		this.props.onRequestStories();
 	}
 
 	// coming down as props, don't need to declare it as a method of app
@@ -41,13 +46,13 @@ class App extends Component {
 	// }
 
 	render() {
-		const { storyList } = this.state;
+		const { stories } = this.state;
 		const { searchField, onSearchChange } = this.props;
-		const filteredStories = storyList.filter(story => {
+		const filteredStories = stories.filter(story => {
 				return story.title.toLowerCase().includes(searchField.toLowerCase());
+				// console.log(story.title.toLowerCase());
 		})
-		console.log(storyList);
-			return !storyList.length ?
+			return !stories.length ?
 			<h1>Loading ...</h1> :
 			(
 				<div className='tc'>
