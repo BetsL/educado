@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LinkyList from '../components/LinkyList';
+import LinkList from '../components/LinkList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
+import Notes from '../components/Notes';
 import './App.css';
 
 import { setSearchField, requestStories } from '../actions';
@@ -29,13 +30,13 @@ class App extends Component {
 	// constructor() {
 	// 	super()
 	// 	this.state = {
-	// 		storyList: [],
+	// 		stories: [],
 	// 	}
 	// }
 
 	componentDidMount() {
 		// through actions ...
-		// fetch('https://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=created_at_i%3E1249344000,created_at_i%3C1533340800&hitsPerPage=10')
+		// fetch('https://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=created_at_i%3E1249344000,created_at_i%3C1533340800&hitsPerPage=50')
 		// 	.then(response => response.json())
 		// 	.then(data => this.setState({ stories: data.hits }));
 		this.props.onRequestStories();
@@ -61,9 +62,10 @@ class App extends Component {
 					<SearchBox searchChange={ onSearchChange }/>
 					<Scroll>
 						<ErrorBoundary>
-							<LinkyList stories={ filteredStories }/>
+							<LinkList stories={ filteredStories }/>
 						</ErrorBoundary>
 					</Scroll>
+					<Notes />
 				</div>
 			);
 		

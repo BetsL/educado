@@ -1,7 +1,7 @@
 import React from 'react';
-import Linkies from './Linkies';
+import Links from './Links';
 
-const LinkyList = ({ stories }) => {
+const LinkList = ({ stories }) => {
 	// if (true) {						// for production
 	// 	throw new Error('Noooooo!');
 	// }	
@@ -10,7 +10,7 @@ const LinkyList = ({ stories }) => {
 			{
 				stories.map((story,i) => {
 					return (
-						<Linkies 
+						<Links 
 							key={ i } 
 							id={ story.id } 
 							url={ story.url } 
@@ -24,5 +24,5 @@ const LinkyList = ({ stories }) => {
 	);
 }
 
-export default LinkyList;
+export default LinkList;
 

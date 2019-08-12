@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Linkies = ({ url, title, author }) => {
+const Links = ({ url, title, author }) => {
 	return (
 		<div className='tc bg-white dib br3 pa3 ma2 grow bw2 shadow-5' style={{ border: '1px solid #a9a9a9' }}>
 			<a href={ url }>{ title }</a>
@@ -9,4 +9,4 @@ const Linkies = ({ url, title, author }) => {
 	);
 }
 
-export default Linkies;
+export default Links;

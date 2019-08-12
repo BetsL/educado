@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
 
 h1 {
-  border-bottom: 10px solid #5d6063;
-  color: #5d6063;
-  font-family: 'Lexend Deca', sans-serif;
-  font-weight: 200;
+  	border-bottom: 10px solid #5d6063;
+  	color: #5d6063;
+  	font-family: 'Lexend Deca', sans-serif;
+  	font-weight: 200;
+}
+
+h2 {
+	color: #5d6063;
+	padding: 50px 50px 10px 50px;
+	text-align: left;
 }
 
 a {
@@ -18,3 +24,12 @@ a:visited {
 p {
 	color: #a9a9a9;
 }
+
+ul li {
+	color: #5d6063;
+	list-style-type: none;
+	text-align: left;
+}
+
+
+
