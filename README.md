@@ -1,4 +1,4 @@
-![Screen Shot 2019-08-12 at 7 09 13 PM](https://user-images.githubusercontent.com/44883733/62904523-bdb1b580-bd34-11e9-9254-d496c8833734.png)
+![Screen Shot 2019-08-13 at 4 01 50 PM](https://user-images.githubusercontent.com/44883733/62973306-d4631580-bde3-11e9-89d0-bcedd79603d5.png)
 
 ![Screen Shot 2019-08-12 at 7 52 59 PM](https://user-images.githubusercontent.com/44883733/62906008-e6d54480-bd3a-11e9-9b8c-dc3e79b5364e.png)
 
